@@ -1,0 +1,375 @@
+<!-- https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Define the title of the webpage -->
+    <title>My Click Counter</title>
+
+    <!-- Link to the Bootstrap CSS file for styling -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <!-- Preconnect to the Google Fonts API for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Link to the Google Fonts stylesheet for custom font styling -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=PT+Serif&family=Work+Sans:wght@500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #CD5888;
+            --primary-color-light: #dc719d;
+            --primary-color-25: #cd588936;
+            --secondary-color: #913175;
+            --secondary-color-25: #89131736;
+            --tertiary-color: #1e1e1e;
+            --tertiary-color-50: #1e1e1eb3;
+            --quaternary-color: #53beec;
+            --quaternary-color-75: #53beecc1;
+            --quaternary-color-50: #53beec9f;
+            --text-color: #fdfcfe;
+            --background-color: #121212;
+            --secondary-background-color: #ffffff02;
+            --link-color: #a484d4;
+            --border-color: lightgray;
+            --ripple-color: #8c65cc;
+        }
+
+        /* Center the content on the screen */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            /* font-family: Arial, sans-serif; */
+            font-family: 'Work Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--text-color);
+        }
+
+        .container {
+            background-color: var(--secondary-background-color);
+            padding: 55px 15px;
+            border-radius: 1rem;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-family: 'PT Serif', serif;
+            text-transform: uppercase;
+        }
+
+        .guide {
+            text-align: left;
+            width: fit-content;
+            display: block;
+            margin: 0 auto 25px;
+        }
+
+        .row-block {
+            margin-bottom: 5px;
+            border-radius: 6px;
+
+        }
+
+        .input-group-text {
+            color: white !important;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--tertiary-color) !important;
+        }
+
+        .form-control {
+            color: var(--text-color) !important;
+            border: none !important;
+            border-radius: 8px;
+            background-color: var(--tertiary-color-50) !important;
+        }
+
+        .btn-custom {
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            font-family: 'Comfortaa', cursive;
+            font-weight: bold;
+            border: none;
+            width: 150px;
+            font-size: 22px;
+            padding: 6px;
+            text-transform: uppercase;
+        }
+
+        .btn-custom:hover {
+            color: var(--text-color);
+            background-color: var(--primary-color-light);
+        }
+
+        .calculate {
+            background-color: var(--quaternary-color-50);
+            box-shadow: 0 0 15px var(--quaternary-color-50);
+            width: 40%;
+            height: 250px;
+            margin: 15px auto;
+            display: block;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            animation: calculate infinite ease-in-out 2s;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            outline: 0;
+            border: 0;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+
+        .calculate:hover {
+            background-color: var(--quaternary-color-75);
+        }
+
+        @keyframes calculate {
+            0% {
+                transform: scale(1);
+            }
+
+            10% {
+                transform: scale(1);
+            }
+
+            20% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1);
+                box-shadow: 0 0 15px var(--quaternary-color-50);
+            }
+
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 20px var(--quaternary-color-50);
+            }
+
+            55% {
+                transform: scale(1.02);
+                box-shadow: 0 0 10px var(--quaternary-color-50);
+            }
+
+            60% {
+                transform: scale(1.03);
+                box-shadow: 0 0 15px var(--quaternary-color-50);
+            }
+
+            70% {
+                transform: scale(1);
+            }
+
+            80% {
+                transform: scale(1);
+            }
+
+            90% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        span.ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 600ms linear;
+            background-color: var(--quaternary-color);
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            background-color: var(--secondary-background-color);
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+
+        <div class="container">
+            <div class="row row-block">
+                <h1 class="display-5 mb-5 text-center"><span id="title">American Test Grading Tool</span></h1>
+                <div class="guide">
+                    <p>
+                    <h4>Guide</h4>
+                    #1 Enter the maximum percentage that a participant can receive.
+                    <br>
+                    #2 Specify the points deduction for each disqualification.
+                    <br>
+                    #3 Click the blue screen.
+                    <br>
+                    #4 Document the results.
+                    </p>
+                </div>
+            </div>
+            <div class="row row-block">
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Percentage</span>
+                        <input class="form-control percentage" value="100" type="number" aria-label="Percentage"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Percentage To Remove</span>
+                        <input class="form-control percentage-to-remove" value="5" type="number" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row row-block">
+                <div class="col-12 col-block">
+                    <div class="calculate" id="calculate">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row row-block">
+                <div class="col-12 col-block">
+                    <p class="severaldis text-danger text-center">Several disqualifications: ___</p>
+                    <p class="result text-success text-center">Result: ___</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <input class="btn btn-custom d-block m-auto" id="restart" type="button" value="restart">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ for my dad, a hardworking educator. Designed to make his test grading process easier and
+            more efficient.</p>
+    </footer>
+
+    <!-- Add the Bootstrap JavaScript file -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                var text = $("#title").text(),
+                    char = 0;
+                $("#title").text("");
+                var typing = setInterval(function () {
+                    if (char < text.length) {
+                        $("#title").text($("#title").text() + text[char++]);
+                    } else {
+                        clearInterval(typing);
+                    }
+                }, 60);
+            });
+
+            $('#restart').click(function () {
+                location.reload();
+            });
+
+            var CalculateBtn = $('.calculate');
+            var ResultTxt = $('.result');
+            var SeveralDisTxt = $('.severaldis');
+            var clickCount = 0;
+
+            CalculateBtn.click(function () {
+                var PercentageToRemoveIpt = parseFloat($('.percentage-to-remove').val());
+                var PercentageIpt = parseFloat($('.percentage').val());
+
+                result = PercentageIpt - PercentageToRemoveIpt;
+                $('.percentage').val(result)
+
+                console.log("PercentageIpt:", PercentageIpt);
+                console.log("PercentageToRemoveIpt:", PercentageToRemoveIpt);
+                console.log("Result:", result);
+
+                clickCount++;
+                SeveralDisTxt.text("Several disqualifications: " + clickCount);
+                ResultTxt.text("Result: " + result);
+            });
+
+            function createRipple(event) {
+                const button = event.currentTarget;
+
+                const circle = document.createElement("span");
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+                circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+                circle.classList.add("ripple");
+
+                const ripple = button.getElementsByClassName("ripple")[0];
+
+                button.appendChild(circle);
+            }
+
+            const button = document.getElementById('calculate');
+            button.addEventListener("click", createRipple);
+        });
+    </script>
+
+
+</body>
+
+</html>
