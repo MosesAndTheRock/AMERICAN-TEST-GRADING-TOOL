@@ -59,6 +59,7 @@ h1 {
     color: var(--text-color);
     font-family: 'PT Serif', serif;
     text-transform: uppercase;
+    font-size: 4rem;
 }
 
 .guide {
@@ -71,7 +72,6 @@ h1 {
 .row-block {
     margin-bottom: 5px;
     border-radius: 6px;
-
 }
 
 .input-group-text {
@@ -207,4 +207,196 @@ footer {
 
 footer p {
     margin: 0 !important;
+}
+
+
+/*
+ * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    .center {
+        /* display: block; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0px auto;
+    }
+
+    .container {
+        width: 100% !important;
+        margin: 0 !important;
+        background-color: transparent;
+
+        /* background-color: var(--secondary-background-color); */
+        /* padding: 5px 15px; */
+        /* border-radius: 1rem; */
+    }
+
+    .container * {
+        width: 100% !important;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .guide {
+        font-size: 1.6rem;
+    }
+
+    .input-group-text {
+        font-size: 29px;
+    }
+
+    .input-group>.form-control,
+    .input-group>.form-select {
+        font-size: 35px;
+    }
+
+    .result-text {
+        font-size: 40px;
+    }
+
+    .btn-custom {
+        font-size: 40px;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    /* Styles */
+        .center {
+        /* display: block; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0px auto;
+    }
+
+    .container {
+        width: 100% !important;
+        margin: 0 !important;
+        background-color: transparent;
+
+        /* background-color: var(--secondary-background-color); */
+        /* padding: 5px 15px; */
+        /* border-radius: 1rem; */
+    }
+
+    .container * {
+        width: 100% !important;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .guide {
+        font-size: 1.6rem;
+    }
+
+    .input-group-text {
+        font-size: 29px;
+    }
+
+    .input-group>.form-control,
+    .input-group>.form-select {
+        font-size: 35px;
+    }
+
+    .result-text {
+        font-size: 40px;
+    }
+
+    .btn-custom {
+        font-size: 40px;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+        .center {
+        /* display: block; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0px auto;
+    }
+
+    .container {
+        width: 100% !important;
+        margin: 0 !important;
+        background-color: transparent;
+
+        /* background-color: var(--secondary-background-color); */
+        /* padding: 5px 15px; */
+        /* border-radius: 1rem; */
+    }
+
+    .container * {
+        width: 100% !important;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .guide {
+        font-size: 1.6rem;
+    }
+
+    .input-group-text {
+        font-size: 29px;
+    }
+
+    .input-group>.form-control,
+    .input-group>.form-select {
+        font-size: 35px;
+    }
+
+    .result-text {
+        font-size: 40px;
+    }
+
+    .btn-custom {
+        font-size: 40px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+    /* Styles */
 }
