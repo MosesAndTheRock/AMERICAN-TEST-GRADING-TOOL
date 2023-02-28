@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    var CalculateBtn = $('.calculate');
+    var ResultTxt = $('.result');
+    var SeveralDisTxt = $('.severaldis');
+    var clickCount = 0;
+    
     $(document).ready(function () {
         var text = $("#title").text(),
             char = 0;
@@ -13,20 +18,23 @@ $(document).ready(function () {
     });
 
     $('#restart').click(function () {
-        location.reload();
+        // location.reload();
+        var PercentageToRemoveIpt = parseFloat($('.percentage-to-remove').val());
+        $('.percentage-to-remove').val(PercentageToRemoveIpt);
+        $('.percentage').val(100);
+        clickCount = 0;
+        SeveralDisTxt.text("Several disqualifications: ___");
+        ResultTxt.text("Result: ___");
     });
 
-    var CalculateBtn = $('.calculate');
-    var ResultTxt = $('.result');
-    var SeveralDisTxt = $('.severaldis');
-    var clickCount = 0;
+
 
     CalculateBtn.click(function () {
         var PercentageToRemoveIpt = parseFloat($('.percentage-to-remove').val());
         var PercentageIpt = parseFloat($('.percentage').val());
 
         result = PercentageIpt - PercentageToRemoveIpt;
-        $('.percentage').val(result)
+        $('.percentage').val(result);
 
         console.log("PercentageIpt:", PercentageIpt);
         console.log("PercentageToRemoveIpt:", PercentageToRemoveIpt);
